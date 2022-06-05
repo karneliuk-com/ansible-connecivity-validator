@@ -1,0 +1,9 @@
+{% for result_item in ping_results.results %}
+{%   if result_item.skipped is not defined %}
+{%     if result_item.failed %}
+Reachability from {{ inventory_hostname }} to {{ result_item.item }}: {{ result_item.stdout_lines[-1] }}
+{%     else %}
+Reachability from {{ inventory_hostname }} to {{ result_item.item }}: {{ result_item.stdout_lines[-2] }}
+{%     endif %}
+{%   endif %}
+{% endfor %}

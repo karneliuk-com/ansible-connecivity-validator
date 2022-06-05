@@ -1,0 +1,8 @@
+---
+- name: Preapre endpoints for lab
+  hosts: endpoints
+  gather_facts: yes
+
+  roles:
+    - 100_hosts_setup
+...

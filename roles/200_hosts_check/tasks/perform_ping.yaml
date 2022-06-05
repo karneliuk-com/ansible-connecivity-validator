@@ -1,0 +1,15 @@
+---
+- name: 200.20.10. Perform Reachability Test to {{ host_level.key }}
+  loop: "{{ host_level.value }}"
+  when: "not item | regex_search('^fe80:')"
+  ignore_errors: yes
+  ansible.builtin.command:
+    cmd: "ping {{ item }} -c 3"
+  register: ping_results
+
+- name: 200.20.20. Prepapare Intermediate Test Report to {{ host_level.key }}
+  delegate_to: localhost
+  ansible.builtin.template:
+    src: report.j2
+    dest: /tmp/temp-reachability-from-{{ inventory_hostname }}-to-{{ host_level.key }}
+...

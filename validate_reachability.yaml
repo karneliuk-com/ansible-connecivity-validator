@@ -1,0 +1,8 @@
+---
+- name: Check connectivity between nodes
+  hosts: endpoints
+  gather_facts: yes
+
+  roles:
+    - 200_hosts_check
+...

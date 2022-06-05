@@ -1,0 +1,5 @@
+---
+report:
+  dir: output
+  filename: report.txt
+...

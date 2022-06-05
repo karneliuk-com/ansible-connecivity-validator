@@ -1,0 +1,10 @@
+---
+- name: 100.10. Copy netplan
+  ansible.builtin.copy:
+    src: "netplan-{{ inventory_hostname }}.yaml"
+    dest: /etc/netplan/netplan-{{ inventory_hostname }}.yaml
+
+- name: 100.20. Apply netplan
+  ansible.builtin.command:
+    cmd: netplan apply
+...

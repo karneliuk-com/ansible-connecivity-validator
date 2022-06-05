@@ -1,0 +1,19 @@
+---
+- name: 200.10.10. Save Collected IP Addresses
+  delegate_to: localhost
+  ansible.builtin.copy:
+    content: "{{ inventory_hostname }}:\n  - {{ ansible_facts.all_ipv4_addresses | join('\n  - ') }}\n  - {{ ansible_facts.all_ipv6_addresses | join('\n  - ') }}\n"
+    dest: /tmp/host-{{ inventory_hostname }}
+
+- name: 200.10.20. Merger IP Addresses Variables
+  delegate_to: localhost
+  run_once: yes
+  ansible.builtin.shell: cat /tmp/host-* > /tmp/all-ip-hosts.txt
+
+- name: 200.10.30. Re-import IP Addresses
+  delegate_to: localhost
+  run_once: yes
+  ansible.builtin.include_vars:
+    file: /tmp/all-ip-hosts.txt
+    name: targets_ip
+...

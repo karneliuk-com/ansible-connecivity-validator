@@ -1,0 +1,11 @@
+---
+# - name: 200.20.10. Perform Reachability Test
+#   ansible.builtin.command:
+#     cmd: "ping {{ hostvars[item].ansible_host }} -c 3"
+#   register: ping_results
+#   loop: "{{ groups.endpoints }}"
+  
+# - name: 200.20. Validate results
+#   ansible.builtin.debug:
+#     var: ping_results
+...

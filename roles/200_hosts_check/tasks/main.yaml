@@ -1,0 +1,13 @@
+---
+- name: 200.10. Prepare IP Addresses for ping
+  ansible.builtin.include_tasks: prepare_ip_addresses.yaml
+
+- name: 200.20. Perform ICMP Reachability Test (Ping) 
+  ansible.builtin.include_tasks: perform_ping.yaml
+  loop: "{{ targets_ip | dict2items }}"
+  loop_control:
+    loop_var: host_level
+
+- name: 200.30. Compile Final Report
+  ansible.builtin.include_tasks: compile_report.yaml
+...

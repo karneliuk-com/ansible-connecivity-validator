@@ -1,0 +1,18 @@
+---
+- name: 200.30.10. Create Directory for Report
+  delegate_to: localhost
+  run_once: yes
+  ansible.builtin.file:
+    dest: "{{ report.dir }}"
+    state: directory
+
+- name: 200.30.20. Compose the Final Connecvity Report
+  delegate_to: localhost
+  run_once: yes
+  ansible.builtin.shell: cat /tmp/temp-reachability-from-* > {{ report.dir }}/{{ report.filename }}
+
+- name: 200.30.30. Remove Temporary Files
+  delegate_to: localhost
+  run_once: yes
+  ansible.builtin.shell: rm /tmp/temp-reachability-from-* && rm /tmp/host-* && rm /tmp/all-ip-hosts.txt 
+...
