@@ -1,6 +1,6 @@
 ---
 - name: Preapre endpoints for lab
-  hosts: endpoints
+  hosts: lab2
   gather_facts: yes
 
   roles:

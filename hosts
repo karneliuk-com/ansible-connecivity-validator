@@ -1,4 +1,4 @@
-[endpoints]
+[lab1]
 c-1-h1 ansible_host=192.168.101.40
 c-1-h2 ansible_host=192.168.101.41
 c-1-h3 ansible_host=192.168.101.42
@@ -8,3 +8,11 @@ c-1-h6 ansible_host=192.168.101.45
 c-1-h7 ansible_host=192.168.101.46
 c-1-h8 ansible_host=192.168.101.47
 c-1-h9 ansible_host=192.168.101.48
+
+[lab2]
+c-2-d1-h1 ansible_host=192.168.101.80
+c-2-d1-h2 ansible_host=192.168.101.81
+c-2-d1-h3 ansible_host=192.168.101.85
+c-2-d2-h1 ansible_host=192.168.101.82
+c-2-d3-h1 ansible_host=192.168.101.83
+c-2-d3-h2 ansible_host=192.168.101.84
